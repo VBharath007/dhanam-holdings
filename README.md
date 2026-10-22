@@ -7,11 +7,12 @@ A complete static website using the supplied Inter typography, brand logo, busin
 - **Static HTTP Server**: Serve `dist` from any static HTTP server (e.g., `python -m http.server 8080 --directory dist`). Open http://localhost:8080.
 
 ## Edit
-- `dist/data.js`: business data, services, projects, gallery paths, team, FAQs and sample testimonials.
-- `dist/app.js`: page layouts and interactions.
-- `dist/style.css`: responsive design and motion.
-- `dist/index.html`: document metadata.
-- Other files in dist: original supplied assets.
+- `src/data.js`: business data, services, projects, gallery paths, team, FAQs and sample testimonials.
+- `src/app.js`: page layouts and interactions.
+- `src/style.css`: responsive design and motion.
+- `src/index.html`: document metadata.
+- Other files in `src`: original supplied assets.
+- Production output directory: `dist` (generated via `npm run build`).
 
 The 16 inner route directories contain the shared HTML entry for direct navigation on static hosts. When modifying the HTML head, update their index.html copies too. The root application chooses content by URL.
 

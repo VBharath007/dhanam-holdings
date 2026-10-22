@@ -4,7 +4,7 @@ export const company = {
   name: "DANAM HOLDINGS",
   tagline: "Towards Fortune Unfoldings",
   phone: "+91 81100 06913",
-  phone2: "+91 95974 02305",
+  phone2: "+91 9566320944",
   phoneHref: "tel:+918110006913",
   phoneHref2: "tel:+919597402305",
   whatsapp: "918110006913",

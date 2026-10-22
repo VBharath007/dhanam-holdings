@@ -56,7 +56,12 @@
   display: flex !important;
   width: max-content !important;
   will-change: transform;
-  animation: marquee-motion 16s linear infinite !important;
+  animation: marquee-motion 45s linear infinite !important;
+}
+
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused !important;
 }
 
 @keyframes marquee-motion {
@@ -127,7 +132,7 @@
     mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,1) 5%, rgba(0,0,0,1) 95%, transparent 100%);
   }
   .marquee-track {
-    animation-duration: 12s !important;
+    animation-duration: 36s !important;
   }
   .marquee-group {
     gap: 36px;

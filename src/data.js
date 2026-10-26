@@ -40,7 +40,7 @@ export const services = [
   {
     title: "Civil Construction",
     desc: "Complete building construction for homes, shops, offices and factories.",
-    image: "/services/civil.png",
+    image: "/projects/rajmahal/ddhvrktrjjjln58schqk.webp",
     items: [
       "Residential",
       "Commercial",
@@ -50,7 +50,7 @@ export const services = [
   {
     title: "Structural Works",
     desc: "Strong frames and structures built with RCC and steel, plus strengthening of existing buildings.",
-    image: "/services/structural.jpg",
+    image: "/projects/SACS/rvxn271huf5gcqqtdb46.webp",
     items: [
       "RCC Structural Works",
       "Structural Steel Works",
@@ -64,7 +64,7 @@ export const services = [
   {
     title: "Architectural & Design Services",
     desc: "Clear plans and realistic 3D views so you know exactly what you will get before work starts.",
-    image: "/services/Architectural.png",
+    image: "/projects/vinothbjv/VINOTH - BJV (D.W)(5.1.26) -2-Model.webp",
     items: [
       "Architectural Planning",
       "2D Floor Plans",
@@ -75,7 +75,7 @@ export const services = [
   {
     title: "MEP Services",
     desc: "Electrical, plumbing, air-conditioning and fire-safety systems installed safely.",
-    image: "/services/mep.jpg",
+    image: "/projects/rajmahal/kqsatpzqhm1qdsu1zia3.webp",
     items: [
       "Electrical Installation & Wiring",
       "Plumbing & Sanitary Works",
@@ -89,7 +89,7 @@ export const services = [
   {
     title: "Interior & Finishing Works",
     desc: "Neat finishing from flooring and ceilings to doors, glass and exterior cladding.",
-    image: "/services/interior.jpg",
+    image: "/projects/sitaram/SRJ _ Ground Floor Green _ 04.jpg.webp",
     items: [
       "Interior Fit-Out Works",
       "Flooring & Wall Tiling",
@@ -106,7 +106,7 @@ export const services = [
   {
     title: "Roofing & Specialized Works",
     desc: "Durable roofing and waterproofing to keep your building dry and protected.",
-    image: "/services/roofing.jpg",
+    image: "/projects/VKMP/ktmpja5oicl4edkegt6v.webp",
     items: [
       "PUF / PIR Sandwich Roofing",
       "Industrial Roofing Systems",
@@ -120,7 +120,7 @@ export const services = [
   {
     title: "External Development",
     desc: "Roads, paving, parking and landscaping for the area around your building.",
-    image: "/services/external.png",
+    image: "/projects/MARUTHUPANDIYAR  Nagar/marthupandiyar vk model 1.webp",
     items: [
       "Internal Roads & Paving",
       "Interlocking Paver Works",
@@ -134,7 +134,7 @@ export const services = [
   {
     title: "Estimation & Quantity Surveying",
     desc: "Accurate cost calculations so your budget is clear and transparent from the start.",
-    image: "/services/estimation.png",
+    image: "/projects/Hdfc govind sir/HDFC Govind - 001.webp",
     items: [
       "Detailed Estimation & Costing",
       "BOQ Preparation",
@@ -147,7 +147,7 @@ export const services = [
   {
     title: "Project Management & Consultancy",
     desc: "We plan, supervise and monitor your project so it stays on time, on quality and safe.",
-    image: "/services/pmc.jpg",
+    image: "/projects/rajmahal/ypfm74mkfclfjnpbhgte.webp",
     items: [
       "Project Planning & Scheduling",
       "Project Management",
@@ -162,7 +162,7 @@ export const services = [
   {
     title: "Repair, Renovation & Maintenance",
     desc: "Fixing leaks, cracks and ageing buildings, or renovating them completely.",
-    image: "/services/renovation.png",
+    image: "/projects/Sathyamoorthy/xgwqvsrracptlpanzuva.webp",
     items: [
       "Building Repair & Renovation",
       "RCC Crack & Concrete Repair",
@@ -177,7 +177,7 @@ export const services = [
   {
     title: "Technical & Documentation Services",
     desc: "Drawings and reports prepared properly for approvals, execution and handover.",
-    image: "/services/technical.png",
+    image: "/projects/MARUTHUPANDIYAR  Nagar/marthupandiyar vk model 2 -.webp",
     items: [
       "AutoCAD Drafting",
       "Structural Drawings",
@@ -460,22 +460,57 @@ export const team = [
   {
     name: "R. Elangovan",
     role: "Chairman",
-    focus: "Strategic Vision & Corporate Governance"
+    badge: "CHAIRMAN",
+    eyebrow: "FOUNDER & CHAIRMAN | STRATEGIC GOVERNANCE",
+    focus: "Strategic Vision & Corporate Governance",
+    bio: "R. Elangovan is the Chairman of Danam Holdings, providing executive vision, corporate governance, and institutional leadership. With decades of industry stewardship, he steers the organization's strategic expansion, core ethical foundations, and adherence to premier structural standards across all South Indian turnkey developments.",
+    initials: "RE",
+    image: null,
+    location: null,
+    detailsType: null,
+    items: []
   },
   {
     name: "E.N. Suganth",
     role: "Managing Director",
-    focus: "Project Operations & Turnkey Site Execution"
+    badge: "MANAGING DIRECTOR",
+    eyebrow: "MANAGING DIRECTOR | OPERATIONS & EXECUTION",
+    focus: "Project Operations & Turnkey Site Execution",
+    bio: "E.N. Suganth serves as Managing Director of Danam Holdings, driving turnkey site execution, resource management, and ground-level operational precision. He oversees seamless project mobilization, contractor management, and site safety protocols to ensure on-time delivery across commercial and residential ventures.",
+    initials: "ES",
+    image: null,
+    location: null,
+    detailsType: null,
+    items: []
   },
   {
-    name: "N.E. Praveen Elangovan",
+    name: "N. E. Praveen Elangovan",
     role: "Managing Director",
-    focus: "Business Strategy & Client Partnerships"
+    badge: "MANAGING DIRECTOR",
+    eyebrow: "VISIONARY LEADER | CONSTRUCTION & PROJECT MANAGEMENT",
+    focus: "Business Strategy & Client Partnerships",
+    bio: "N. E. Praveen Elangovan is the Managing Director of Danam Holdings, bringing extensive experience in construction management, project planning, and project delivery. With expertise in Project Management Consultancy (PMC) and Engineering, Procurement & Construction (EPC), he is committed to creating value, transforming assets, and delivering projects with a focus on quality and efficiency.",
+    initials: "NP",
+    image: "/assets/ceo.webp",
+    location: "MADURAI, TAMIL NADU",
+    detailsType: "Qualifications",
+    items: [
+      "Master's Degree in Advanced Construction Management",
+      "Master of Business Administration (MBA), Project Management"
+    ]
   },
   {
     name: "S. Sumesh",
     role: "GM – Technical",
-    focus: "Structural Engineering & Quality Assurance"
+    badge: "GM – TECHNICAL",
+    eyebrow: "GENERAL MANAGER | STRUCTURAL & TECHNICAL EXCELLENCE",
+    focus: "Structural Engineering & Quality Assurance",
+    bio: "S. Sumesh is the General Manager – Technical at Danam Holdings, directing structural engineering designs, safety compliance, and comprehensive quality assurance (QA/QC). He oversees technical specifications, structural integrity checks, and high-precision civil engineering workflows.",
+    initials: "SS",
+    image: null,
+    location: null,
+    detailsType: null,
+    items: []
   }
 ];
 

@@ -6,7 +6,7 @@ export const company = {
   phone: "+91 81100 06913",
   phone2: "+91 9566320944",
   phoneHref: "tel:+918110006913",
-  phoneHref2: "tel:+919597402305",
+  phoneHref2: "tel:+919566320944",
   whatsapp: "918110006913",
   email: "danamholdingsepc@gmail.com",
   hours: "Mon – Sat: 9:00 AM – 6:30 PM",
@@ -18,7 +18,7 @@ export const company = {
   },
   socials: {
     facebook: "https://www.facebook.com/p/Danamholdingsofficial-61561735904375/",
-    instagram: "https://www.instagram.com/p/DUnH4PfkabP/",
+    instagram: "https://www.instagram.com/danamholdings/",
     youtube: "https://www.youtube.com/@danamholdings",
   },
 };

@@ -685,6 +685,85 @@ footer {
   gap: 8px
 }
 
+.footer-contact-links {
+  gap: 12px;
+}
+
+.footer-contact-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #c1c9bf;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 1.5;
+  transition: color 0.22s ease;
+}
+
+.footer-contact-item.footer-address-item {
+  align-items: flex-start;
+}
+
+.footer-contact-item.footer-contact-subitem {
+  padding-left: 32px;
+  margin-top: -6px;
+}
+
+.footer-contact-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #8ec052;
+  flex-shrink: 0;
+  transition: background-color 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
+}
+
+.footer-contact-icon svg {
+  display: block;
+}
+
+.footer-contact-item.footer-address-item .footer-pin-icon {
+  margin-top: 2px;
+}
+
+.footer-contact-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.footer-email-link .footer-contact-text {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.footer-address-text {
+  font-size: 12px;
+  color: #c1c9bf;
+  line-height: 1.6;
+  margin: 0;
+  transition: color 0.22s ease;
+}
+
+a.footer-contact-item:hover {
+  color: #ffffff;
+}
+
+a.footer-contact-item:hover .footer-contact-icon {
+  background: rgba(116, 183, 62, 0.18);
+  border-color: rgba(116, 183, 62, 0.45);
+  color: #a3e66c;
+  transform: translateY(-1px);
+}
+
+a.footer-contact-item:hover .footer-address-text {
+  color: #ffffff;
+}
+
 .footer-bottom {
   display: flex;
   justify-content: space-between;
@@ -6965,6 +7044,28 @@ header .button:hover {
   .footer-links p {
     text-align: center !important;
     margin: 0 auto !important;
+  }
+
+  .footer-contact-links {
+    align-items: center !important;
+  }
+
+  .footer-contact-item {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    margin: 0 auto !important;
+    max-width: 290px !important;
+    width: 100% !important;
+  }
+
+  .footer-contact-item.footer-address-item {
+    align-items: flex-start !important;
+  }
+
+  .footer-address-text {
+    text-align: left !important;
   }
 
   .footer-bottom {

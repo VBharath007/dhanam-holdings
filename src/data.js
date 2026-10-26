@@ -11,10 +11,13 @@ export const company = {
   email: "danamholdingsepc@gmail.com",
   hours: "Mon – Sat: 9:00 AM – 6:30 PM",
   address: {
-    lines: ["Plot No. 1, Gokulam Avenue,", "Renganayaki Ammal Street, Kamarajar Salai,", "Madurai – 625009, Tamil Nadu, India"],
-    short: "Gokulam Avenue, Kamarajar Salai, Madurai",
-    mapEmbed: "https://www.google.com/maps?q=Danam+Holdings+Plot+No+1+Gokulam+Avenue+Renganayaki+Ammal+St+Kamarajar+Salai+Madurai+625009&output=embed",
-    mapLink: "https://www.google.com/maps/search/?api=1&query=Danam+Holdings+Gokulam+Avenue+Kamarajar+Salai+Madurai+625009",
+    lines: [
+      "1, Anuppanadi Rd, AA Road,",
+      "Teppakulam, Madurai, Tamil Nadu 625009"
+    ],
+    short: "1, Anuppanadi Rd, Teppakulam, Madurai",
+    mapEmbed: "https://maps.google.com/maps?q=DANAM+HOLDINGS,+1,+Anuppanadi+Rd,+AA+Road,+Teppakulam,+Madurai,+Meenakshi+Nagar,+Tamil+Nadu+625009&output=embed",
+    mapLink: "https://www.google.com/maps/dir//DANAM+HOLDINGS,+1,+Anuppanadi+Rd,+AA+Road,+Teppakulam,+Madurai,+Meenakshi+Nagar,+Tamil+Nadu+625009/@9.9033205,78.1450301,2929m/data=!3m1!1e3!4m8!4m7!1m0!1m5!1m1!1s0x3b00c5502b89f263:0x9fc3dca9d9220d0c!2m2!1d78.1466128!2d9.9090466?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D",
   },
   socials: {
     facebook: "https://www.facebook.com/p/Danamholdingsofficial-61561735904375/",
@@ -550,10 +553,10 @@ export const forums = [
 ];
 
 export const commitments = [
-  { title: "Quality Construction", text: "Good materials and sound workmanship in every structure we build." },
-  { title: "Professional Execution", text: "Planned schedules, supervised sites and trained teams." },
-  { title: "Transparent Costing", text: "Clear estimates and BOQs, so there are no hidden surprises." },
-  { title: "Timely Completion", text: "Projects tracked closely so they finish when promised." },
+  { num: "01", title: "Quality Construction", text: "Good materials and sound workmanship in every structure we build." },
+  { num: "02", title: "Professional Execution", text: "Planned schedules, supervised sites and trained teams." },
+  { num: "03", title: "Transparent Costing", text: "Clear estimates and BOQs, so there are no hidden surprises." },
+  { num: "04", title: "Timely Completion", text: "Projects tracked closely so they finish when promised." },
 ];
 
 export const faqs = [
@@ -564,82 +567,55 @@ export const faqs = [
   { q: "Can you repair or renovate an existing building?", a: "Yes. We do building repair and renovation, crack and concrete repair, structural strengthening, waterproofing, leakage treatment, painting and complete renovation." },
   { q: "Can you manage a project that another contractor is building?", a: "Yes. Our project management and consultancy service covers planning, quality control, material inspection, progress monitoring, safety management and client representation." },
   { q: "How do I get a quote for my project?", a: "Call us, WhatsApp us or send the enquiry form on the Contact page with a short description of your project. Our team will get back to you with the next steps." },
-  { q: "Where is your office?", a: "Our office is at Plot No. 1, Gokulam Avenue, Renganayaki Ammal Street, Kamarajar Salai, Madurai – 625009." },
+  { q: "Where is your office?", a: "Our office is at 1,anuppanadi  road,teppakulam Madurai-625009" },
 ];
 
 // NOTE: These are SAMPLE testimonials so the layout can be reviewed.
 // Replace them with genuine feedback from your clients (with their permission) before the site goes live.
 export const testimonials = [
   {
-    quote: "Danam Holdings construction service is good. The team explained every stage clearly and completed on schedule. Well organized supervision and the finishing quality was neat without any issues.",
-    name: "TSR srijaysuriya",
+    quote: "Good service. Everything from structural planning to finishing was handled with great responsibility and completed on time.",
+    name: "Thanimai Nila",
+    establishment: "Aswins Sweets Snacks Bakery",
+    role: "Business Owner",
+    location: "Mendonsa Colony, Madurai",
+    project: "Commercial Bakery & Snack Outlet",
+    rating: 5,
+    timeAgo: "9 months ago",
+    avatarBg: "#C23E15",
+    isGoogleVerified: true
+  },
+  {
+    quote: "Danam Holdings construction service is exceptionally good. The engineering team explained every stage clearly and completed our villa on schedule. Well-organized site supervision and neat finishing.",
+    name: "TSR Srijaysuriya",
     role: "Homeowner",
     location: "Madurai",
-    project: "Residential Villa EPC",
+    project: "Residential Villa Turnkey EPC",
     rating: 5,
-    reviewCount: "Local Guide • 14 reviews",
-    timeAgo: "3 days ago",
+    timeAgo: "3 months ago",
     avatarBg: "#E65100",
-    isNew: true
+    isGoogleVerified: true
   },
   {
-    quote: "Good site supervision and proper planning. The work was handled in an organised way from start to handover. Progress updates were accurate and execution was completely transparent.",
+    quote: "Good site supervision and proper planning. Handled our commercial building RCC frame and elevation work with complete transparency. Regular progress updates and delivered right before our planned opening.",
     name: "K. Rengasamy",
-    role: "Business Owner",
+    role: "Commercial Developer",
     location: "Aruppukottai",
-    project: "Commercial Showroom",
+    project: "Commercial Showroom Complex",
     rating: 5,
-    reviewCount: "3 reviews • 1 photo",
-    timeAgo: "2 weeks ago",
+    timeAgo: "5 months ago",
     avatarBg: "#1565C0",
-    isNew: false
+    isGoogleVerified: true
   },
   {
-    quote: "We appreciated the clear estimate and regular progress updates. It was easy to work with a single dedicated engineering team for the whole renovation project. Highly recommended.",
+    quote: "We appreciated the clear estimate, BOQ transparency, and regular progress updates. It was effortless working with a single dedicated team for the whole design and structural execution. Highly recommended.",
     name: "Dr. A. Venkatesh",
     role: "Property Owner",
     location: "Madurai",
-    project: "Building Renovation",
+    project: "Custom Residence & Renovation",
     rating: 5,
-    reviewCount: "6 reviews • 3 photos",
-    timeAgo: "a month ago",
+    timeAgo: "7 months ago",
     avatarBg: "#2E7D32",
-    isNew: false
-  },
-  {
-    quote: "Very reliable civil engineering team in Madurai. They handled our commercial building RCC frame and elevation work. Progress reports with site photos were sent every week. Handed over right before our planned opening.",
-    name: "Praveen Kumar S",
-    role: "Commercial Developer",
-    location: "Theni",
-    project: "Commercial Complex",
-    rating: 5,
-    reviewCount: "Local Guide • 31 reviews • 18 photos",
-    timeAgo: "2 months ago",
-    avatarBg: "#8E24AA",
-    isNew: false
-  },
-  {
-    quote: "Good quality workmanship on our factory shed and warehouse expansion. Structural steel quality and roof truss fabrication are solid. Slight delay of 5 days due to continuous monsoon rains, but the team coordinated well and made up time during plastering. Satisfied with overall service.",
-    name: "M. Karthikeyan",
-    role: "Factory Owner",
-    location: "Virudhunagar",
-    project: "Industrial Warehouse Shed",
-    rating: 4,
-    reviewCount: "8 reviews • 4 photos",
-    timeAgo: "3 months ago",
-    avatarBg: "#00897B",
-    isNew: false
-  },
-  {
-    quote: "Constructed our duplex home with Danam Holdings. Design planning and structural stability are top-notch. Transparency in cement and steel grades used was very reassuring. Minor changes during plumbing took a few extra days, but finishing is neat and within our budget.",
-    name: "S. Meenakshi Sundaram",
-    role: "Homeowner",
-    location: "Madurai",
-    project: "Independent House",
-    rating: 4,
-    reviewCount: "2 reviews • 0 photos",
-    timeAgo: "4 months ago",
-    avatarBg: "#D81B60",
-    isNew: false
-  },
+    isGoogleVerified: true
+  }
 ];

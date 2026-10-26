@@ -734,6 +734,7 @@ footer {
 .footer-contact-text {
   flex: 1;
   min-width: 0;
+  text-align: left;
 }
 
 .footer-email-link .footer-contact-text {
@@ -1037,7 +1038,81 @@ a.footer-contact-item:hover .footer-address-text {
 .map {
   width: 100%;
   height: 380px;
-  border: 0
+  border: 0;
+}
+
+.map-link-wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  background: #eef2eb;
+}
+
+.map-link-wrapper .map {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  display: block;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+
+.map-link-wrapper:hover .map {
+  opacity: 0.95;
+}
+
+.map-overlay-badge {
+  position: absolute;
+  bottom: 24px;
+  right: 28px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: rgba(23, 34, 27, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  border-radius: 999px;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.map-overlay-badge .map-overlay-icon {
+  display: inline-flex;
+  align-items: center;
+  color: #74b73e;
+}
+
+.map-overlay-badge .map-overlay-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.map-overlay-badge .map-overlay-arrow {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.25s ease;
+}
+
+.map-link-wrapper:hover .map-overlay-badge {
+  background: #17221b;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.32);
+  border-color: rgba(116, 183, 62, 0.55);
+}
+
+.map-link-wrapper:hover .map-overlay-arrow {
+  transform: translate(2px, -2px);
 }
 
 .reviews {
@@ -7047,7 +7122,11 @@ header .button:hover {
   }
 
   .footer-contact-links {
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center !important;
+    width: 100% !important;
+    gap: 12px !important;
   }
 
   .footer-contact-item {
@@ -7056,16 +7135,25 @@ header .button:hover {
     justify-content: flex-start !important;
     text-align: left !important;
     margin: 0 auto !important;
-    max-width: 290px !important;
-    width: 100% !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    gap: 10px !important;
   }
 
   .footer-contact-item.footer-address-item {
     align-items: flex-start !important;
+    max-width: 310px !important;
   }
 
+  .footer-contact-item.footer-contact-subitem {
+    padding-left: 32px !important;
+    margin-top: -4px !important;
+  }
+
+  .footer-contact-text,
   .footer-address-text {
     text-align: left !important;
+    margin: 0 !important;
   }
 
   .footer-bottom {
@@ -7376,16 +7464,33 @@ header .button:hover {
     letter-spacing: -0.015em !important;
   }
 
-  .map {
+  .map-link-wrapper {
     width: 90% !important;
     max-width: 100% !important;
     margin: 0 auto 50px !important;
-    height: 320px !important;
     border-radius: 20px !important;
     border: 1.5px solid rgba(255, 255, 255, 0.85) !important;
     box-shadow: 0 12px 32px rgba(31, 55, 38, 0.08) !important;
     display: block !important;
     overflow: hidden !important;
+  }
+
+  .map-link-wrapper .map {
+    width: 100% !important;
+    height: 320px !important;
+    margin: 0 !important;
+    border-radius: 0 !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .map-overlay-badge {
+    bottom: 14px !important;
+    right: 14px !important;
+    left: 14px !important;
+    justify-content: center !important;
+    font-size: 12.5px !important;
+    padding: 10px 14px !important;
   }
 }
 
@@ -7563,5 +7668,814 @@ header .button:hover {
 
   .affiliation-desc {
     font-size: 10.5px;
+  }
+}
+
+/* ==========================================================================
+   OUR COMMITMENT - THE STANDARDS WE WORK BY (HOME PAGE)
+   ========================================================================== */
+.standards-section {
+  position: relative;
+  padding: 105px 0 120px;
+  overflow: hidden;
+  background-color: #07190d;
+}
+
+.standards-backdrop {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.68) saturate(1.1);
+  transform: scale(1.02);
+  transition: transform 0.8s ease;
+  z-index: 1;
+}
+
+.standards-section:hover .standards-backdrop {
+  transform: scale(1.04);
+}
+
+.standards-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(7, 24, 13, 0.92) 0%,
+    rgba(10, 32, 18, 0.86) 45%,
+    rgba(6, 19, 11, 0.94) 100%
+  );
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 2;
+}
+
+.standards-inner {
+  position: relative;
+  z-index: 3;
+}
+
+.standards-head {
+  margin-bottom: 46px;
+}
+
+.standards-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #74b73e;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.standards-eyebrow-line {
+  display: inline-block;
+  width: 28px;
+  height: 2.5px;
+  background: #74b73e;
+  border-radius: 2px;
+}
+
+.standards-title {
+  color: #ffffff;
+  font-size: clamp(34px, 4.4vw, 52px);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0;
+}
+
+.standards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 4px;
+  background: rgba(14, 34, 22, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: hidden;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.35);
+}
+
+.standards-card {
+  padding: 42px 34px 44px;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+  display: flex;
+  flex-direction: column;
+  transition: background 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+.standards-card:last-child {
+  border-right: none;
+}
+
+.standards-card:hover {
+  background: rgba(116, 183, 62, 0.1);
+}
+
+.standards-num {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #74b73e;
+  letter-spacing: 0.08em;
+  margin-bottom: 22px;
+}
+
+.standards-card-title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 14px;
+  letter-spacing: -0.015em;
+}
+
+.standards-card-desc {
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.74);
+  margin: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 1024px) {
+  .standards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .standards-card:nth-child(2) {
+    border-right: none;
+  }
+  .standards-card:nth-child(1),
+  .standards-card:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+}
+
+@media (max-width: 640px) {
+  .standards-section {
+    padding: 70px 0 80px;
+  }
+  .standards-grid {
+    grid-template-columns: 1fr;
+    border-radius: 12px;
+  }
+  .standards-card {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+    padding: 30px 24px 32px;
+  }
+  .standards-card:last-child {
+    border-bottom: none;
+  }
+  .standards-head {
+    margin-bottom: 34px;
+  }
+  .standards-card-title {
+    font-size: 19px;
+  }
+}
+
+/* ==========================================================================
+   PROJECT TESTIMONIALS SECTION (OUR PROJECTS PAGE)
+   ========================================================================== */
+.project-testimonials-section {
+  padding: 85px 0 95px;
+  background: #f7f9f5;
+  border-top: 1px solid var(--line, #e2e8dc);
+}
+
+.project-testimonials-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 50px;
+}
+
+.gmb-rating-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 22px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(31, 55, 38, 0.06);
+}
+
+.gmb-rating-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.gmb-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.gmb-rating-stars {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gmb-score {
+  font-size: 24px;
+  font-weight: 700;
+  color: #111827;
+  line-height: 1;
+}
+
+.gmb-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.gmb-sub {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.testimonial-single-wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.testimonial-slider-track {
+  position: relative;
+  min-height: 280px;
+}
+
+.testimonial-slide {
+  display: none;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 20px;
+  padding: 38px 42px 34px;
+  box-shadow: 0 12px 36px rgba(31, 55, 38, 0.06);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.testimonial-slide.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+  animation: testFadeIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes testFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimonial-card-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.reviewer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 19px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+}
+
+.reviewer-info {
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.reviewer-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.reviewer-sub {
+  font-size: 13px;
+  color: #6b7280;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.google-badge-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #f3f4f6;
+}
+
+.testimonial-stars-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 20px;
+}
+
+.testimonial-time {
+  margin-left: 10px;
+  font-size: 12.5px;
+  color: #9ca3af;
+  font-weight: 500;
+}
+
+.testimonial-quote {
+  margin: 0 0 28px;
+}
+
+.testimonial-quote p {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: #27312b;
+  margin: 0;
+  font-style: normal;
+  font-weight: 450;
+}
+
+.testimonial-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid #edf0ea;
+  font-size: 13px;
+}
+
+.testimonial-location {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.testimonial-verified-tag {
+  color: #1e3a2b;
+  font-weight: 600;
+  font-size: 12px;
+  background: #eef5e9;
+  padding: 4px 11px;
+  border-radius: 6px;
+}
+
+.testimonial-slider-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  padding: 0 6px;
+}
+
+.testimonial-counter {
+  font-size: 14px;
+  font-weight: 700;
+  color: #74b73e;
+  letter-spacing: 0.08em;
+}
+
+.testimonial-arrows {
+  display: flex;
+  gap: 12px;
+}
+
+.testimonial-arrow-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid #dbe2d6;
+  color: #17221b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-arrow-btn:hover {
+  background: #17221b;
+  color: #ffffff;
+  border-color: #17221b;
+  transform: scale(1.05);
+}
+
+@media (max-width: 900px) {
+  .project-testimonials-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .project-testimonials-section {
+    padding: 60px 0 70px;
+  }
+  .testimonial-slide {
+    padding: 26px 20px 24px;
+    border-radius: 16px;
+  }
+  .testimonial-quote p {
+    font-size: 15px;
+  }
+}
+
+/* ==========================================================================
+   ROTARY CLUB - SERVICE LIST SECTION (EXPERTISE PAGE)
+   ========================================================================== */
+.rotary-section {
+  padding: 85px 0 95px;
+  background: #f4f6f1;
+  border-top: 1px solid var(--line, #e2e8dc);
+}
+
+.rotary-container {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 24px;
+  padding: 48px 44px;
+  box-shadow: 0 16px 44px rgba(31, 55, 38, 0.06);
+}
+
+.rotary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #edf0ea;
+  padding-bottom: 28px;
+  margin-bottom: 34px;
+  gap: 20px;
+}
+
+.rotary-brand {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.rotary-logo-box {
+  background: #ffffff;
+  padding: 8px 14px;
+  border-radius: 12px;
+  border: 1px solid #e5e9e2;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotary-logo {
+  height: 48px;
+  max-width: 140px;
+  object-fit: contain;
+}
+
+.rotary-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.rotary-tag {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #74b73e;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.rotary-heading {
+  font-size: clamp(26px, 3.2vw, 36px);
+  font-weight: 800;
+  color: #0c2340;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.rotary-subheading {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #c98810;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.rotary-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #f0f5ec;
+  color: #1e3a2b;
+  font-size: 12.5px;
+  font-weight: 600;
+  border: 1px solid #dbe6d5;
+}
+
+.rotary-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #74b73e;
+}
+
+.rotary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.rotary-card {
+  background: #fafbf8;
+  border: 1px solid #e7ebe3;
+  border-radius: 14px;
+  padding: 24px 22px 26px;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+  position: relative;
+}
+
+.rotary-card:hover {
+  background: #ffffff;
+  border-color: #74b73e;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(31, 55, 38, 0.08);
+}
+
+.rotary-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.rotary-num {
+  font-size: 13px;
+  font-weight: 700;
+  color: #74b73e;
+  letter-spacing: 0.08em;
+}
+
+.rotary-arrow {
+  color: #9ca3af;
+  display: inline-flex;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.rotary-card:hover .rotary-arrow {
+  transform: translate(2px, -2px);
+  color: #74b73e;
+}
+
+.rotary-card-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #17221b;
+  margin: 0 0 8px;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+
+.rotary-card-desc {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #5d6d63;
+  margin: 0;
+}
+
+.rotary-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  margin-top: 34px;
+  padding-top: 26px;
+  border-top: 1px solid #edf0ea;
+}
+
+.rotary-bottom-text {
+  font-size: 14px;
+  color: #4b5563;
+  margin: 0;
+}
+
+.rotary-bottom-text strong {
+  color: #111827;
+}
+
+.rotary-bottom-btn {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .rotary-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+  .rotary-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .rotary-section {
+    padding: 45px 0 55px;
+    scroll-margin-top: 90px;
+  }
+  .rotary-container {
+    padding: 22px 18px 24px;
+    border-radius: 18px;
+  }
+  .rotary-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding-bottom: 20px;
+    margin-bottom: 22px;
+  }
+  .rotary-brand {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+  }
+  .rotary-logo-box {
+    padding: 6px 10px;
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+  .rotary-logo {
+    height: 40px;
+    max-width: 95px;
+  }
+  .rotary-tag {
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    margin-bottom: 2px;
+  }
+  .rotary-heading {
+    font-size: 22px;
+    line-height: 1.15;
+  }
+  .rotary-subheading {
+    font-size: 11.5px;
+    letter-spacing: 0.1em;
+    margin-top: 2px;
+  }
+  .rotary-badge {
+    padding: 6px 12px;
+    font-size: 11.5px;
+    gap: 7px;
+    align-self: flex-start;
+  }
+  .rotary-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .rotary-card {
+    padding: 16px 16px 18px;
+    border-radius: 12px;
+  }
+  .rotary-card-top {
+    margin-bottom: 8px;
+  }
+  .rotary-num {
+    font-size: 12px;
+  }
+  .rotary-card-title {
+    font-size: 15px;
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+  .rotary-card-desc {
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .rotary-bottom {
+    margin-top: 22px;
+    padding-top: 20px;
+    gap: 16px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .rotary-bottom-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .rotary-bottom-btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    padding: 13px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .rotary-section {
+    padding: 36px 0 44px;
+    scroll-margin-top: 85px;
+  }
+  .rotary-container {
+    padding: 18px 14px 20px;
+    border-radius: 16px;
+  }
+  .rotary-brand {
+    gap: 12px;
+  }
+  .rotary-logo-box {
+    padding: 5px 8px;
+    border-radius: 8px;
+  }
+  .rotary-logo {
+    height: 34px;
+    max-width: 80px;
+  }
+  .rotary-tag {
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+  }
+  .rotary-heading {
+    font-size: 19px;
+  }
+  .rotary-subheading {
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+  }
+  .rotary-badge {
+    padding: 5px 10px;
+    font-size: 11px;
+    gap: 6px;
+  }
+  .rotary-grid {
+    gap: 10px;
+  }
+  .rotary-card {
+    padding: 14px 14px 16px;
+    border-radius: 10px;
+  }
+  .rotary-card-title {
+    font-size: 14px;
+  }
+  .rotary-card-desc {
+    font-size: 12px;
+  }
+  .rotary-bottom {
+    margin-top: 18px;
+    padding-top: 16px;
+    gap: 14px;
+  }
+  .rotary-bottom-text {
+    font-size: 12px;
+  }
+  .rotary-bottom-btn {
+    padding: 12px 16px;
+    font-size: 13px;
   }
 }

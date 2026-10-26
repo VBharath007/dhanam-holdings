@@ -18,10 +18,10 @@ const icoChevronRight = `<svg class="breadcrumb-chevron" width="13" height="13" 
 const breadcrumbSep = `<span class="breadcrumb-divider" aria-hidden="true">${icoChevronRight}</span>`;
 const image = (src, alt, cls = '') => `<img src="${src}" alt="${alt}" class="${cls}" loading="lazy" decoding="async">`;
 const logo = `<a class="logo" href="/" aria-label="Danam Holdings home"><img src="/dhlogo.webp" alt="Danam Holdings logo" loading="lazy" decoding="async"><span><strong>DANAM HOLDINGS</strong><small>TOWARDS FORTUNE UNFOLDINGS</small></span></a>`;
-const nav = [['/', 'Home'], ['/about-us', 'About us'], ['/services', 'Expertise'], ['/our-projects', 'Our projects']];
+const nav = [['/', 'Home'], ['/about-us', 'About us'], ['/services', 'Services'], ['/our-projects', 'Our projects']];
 const path = location.pathname.replace(/\/$/, '') || '/';
 const sparkleColor = '#74b73e';
-const activeNavIndex = nav.findIndex(([u]) => u === path);
+const activeNavIndex = nav.findIndex(([u]) => u === path || (path === '/expertise' && u === '/services'));
 
 $('#header').innerHTML = `
 <div class="wrap header-inner">
@@ -222,7 +222,7 @@ function initSparkleNavbar() {
 }
 initSparkleNavbar();
 
-$('#footer').innerHTML = `<div class="wrap"><div class="footer-top"><div>${logo}<p>Complete construction and project management solutions.<br>Rooted in Madurai. Building across South India.</p><div class="footer-socials" style="display:flex;gap:25px">${Object.entries(company.socials).map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener noreferrer">${n[0].toUpperCase() + n.slice(1)} <span class="social-arrow">${icoArrDiag}</span></a>`).join('')}</div></div><div><h3>Explore</h3><div class="footer-links">${nav.map(([u, t]) => `<a href="${u}">${t}</a>`).join('')}<a href="/contact">Contact us</a></div></div><div><h3>Start a conversation</h3><div class="footer-links footer-contact-links"><a href="${company.phoneHref}" class="footer-contact-item" aria-label="Call ${company.phone}"><span class="footer-contact-icon">${icoPhone}</span><span class="footer-contact-text">${company.phone}</span></a><a href="${company.phoneHref2}" class="footer-contact-item footer-contact-subitem" aria-label="Call ${company.phone2}"><span class="footer-contact-text">${company.phone2}</span></a><a href="mailto:${company.email}" class="footer-contact-item footer-email-link" aria-label="Email ${company.email}"><span class="footer-contact-icon">${icoMail}</span><span class="footer-contact-text">${company.email}</span></a><a href="${company.address.mapLink}" target="_blank" rel="noopener noreferrer" class="footer-contact-item footer-address-item" aria-label="View Danam Holdings office on Google Maps" title="Open office location in Google Maps"><span class="footer-contact-icon footer-pin-icon">${icoPin}</span><span class="footer-contact-text footer-address-text">${company.address.lines.join('<br>')}</span></a></div></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} Danam Holdings. All rights reserved.</span><span>Construction. Integrity. Lasting value.</span><a href="#main" class="footer-back-to-top">Back to top ${icoArrUp}</a></div></div>`;
+$('#footer').innerHTML = `<div class="wrap"><div class="footer-top"><div>${logo}<p>Your trusted partner in civil engineering & turnkey EPC construction. Delivering structural integrity, transparent costing, and on-time project execution across South India.</p><div class="footer-socials" style="display:flex;gap:25px">${Object.entries(company.socials).map(([n, u]) => `<a href="${u}" target="_blank" rel="noopener noreferrer">${n[0].toUpperCase() + n.slice(1)} <span class="social-arrow">${icoArrDiag}</span></a>`).join('')}</div></div><div><h3>Explore</h3><div class="footer-links">${nav.map(([u, t]) => `<a href="${u}">${t}</a>`).join('')}<a href="/contact">Contact us</a></div></div><div><h3>Start a conversation</h3><div class="footer-links footer-contact-links"><a href="${company.phoneHref}" class="footer-contact-item" aria-label="Call ${company.phone}"><span class="footer-contact-icon">${icoPhone}</span><span class="footer-contact-text">${company.phone}</span></a><a href="${company.phoneHref2}" class="footer-contact-item footer-contact-subitem" aria-label="Call ${company.phone2}"><span class="footer-contact-text">${company.phone2}</span></a><a href="mailto:${company.email}" class="footer-contact-item footer-email-link" aria-label="Email ${company.email}"><span class="footer-contact-icon">${icoMail}</span><span class="footer-contact-text">${company.email}</span></a><a href="${company.address.mapLink}" target="_blank" rel="noopener noreferrer" class="footer-contact-item footer-address-item" aria-label="View Danam Holdings office on Google Maps" title="Open office location in Google Maps"><span class="footer-contact-icon footer-pin-icon">${icoPin}</span><span class="footer-contact-text footer-address-text">${company.address.lines.join('<br>')}</span></a></div></div></div><div class="footer-bottom"><span>© ${new Date().getFullYear()} Danam Holdings. All rights reserved.</span><span>Construction. Integrity. Lasting value.</span><a href="#main" class="footer-back-to-top">Back to top ${icoArrUp}</a></div></div>`;
 const cta = () => `<section class="cta"><div class="wrap"><div><span class="eyebrow">Start Your Project With Danam Holdings</span><h2>Ready to build or renovate?<br>Let's talk about your plans.</h2></div><a href="/contact" class="button">Contact our team <span class="arrow-wrap">${icoArrDiag}</span></a></div></section>`;
 const card = p => `<a class="project-card reveal" id="project-${slug(p)}" href="${url(p)}"><div class="project-image">${image(p.image, p.name)}<span class="circle" style="display:grid;place-items:center">${icoArrDiag}</span></div><div class="project-meta"><div><h3>${p.name}</h3><p>${p.location}</p></div><span>${p.category}</span></div></a>`;
 const clientLogos = ['thanga mail.webp', 'theni anantham.webp', 'oyo.webp', 'Rajmahal.jpeg', 'sacs.png', 'sita ram jewellers.webp', 'msd.webp'];
@@ -235,7 +235,7 @@ const homeDisciplines = [
   { num: '04', title: services[8].title, desc: services[8].desc, image: services[8].image, tag: services[8].items.slice(0, 3).join(' · '), link: '/contact?service=' + encodeURIComponent(services[8].title) }
 ];
 
-const servicesInteractive = (list = homeDisciplines, containerId = 'home-services') => `<div class="services-interactive" id="${containerId}"><div class="services-list" role="tablist" aria-label="Our disciplines">${list.map((d, i) => `<div class="service-hover-item ${i === 0 ? 'active' : ''}" data-index="${i}" role="tab" tabindex="0" aria-selected="${i === 0}"><div class="service-hover-header"><div class="service-hover-meta"><span class="service-hover-num">${d.num || num(i + 1)}</span><h3 class="service-hover-title">${d.title}</h3></div><span class="service-hover-arrow" aria-hidden="true">${icoArrRight}</span></div><div class="service-mobile-drawer"><div class="service-mobile-media" data-service-idx="${i}" role="button" aria-label="View full image of ${d.title}" tabindex="0"><img src="${d.image}" alt="${d.title}" class="service-mobile-img" loading="lazy" decoding="async"><span class="service-mobile-zoom-badge" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg><span>Full view</span></span></div><p class="service-mobile-desc">${d.desc}</p><div class="service-mobile-items">${(d.items || []).slice(0, 4).map(it => `<span class="service-preview-pill">${it}</span>`).join('')}</div><div class="service-mobile-footer"><a class="service-preview-link btn-action btn-action-sm btn-action-light" href="${d.link || '/contact?service=' + encodeURIComponent(d.title)}">Discuss this service <span class="arrow">${icoArrDiag}</span></a></div></div></div>`).join('')}</div><div class="service-preview-panel"><div class="service-preview-media" role="button" aria-label="View full image" tabindex="0">${list.map((d, i) => `<img src="${d.image}" alt="${d.title}" class="service-preview-img ${i === 0 ? 'active' : ''}" data-preview-index="${i}" loading="lazy" decoding="async">`).join('')}</div><div class="service-preview-info"><p class="service-preview-desc" id="${containerId}-desc">${list[0].desc}</p><div class="service-preview-items" id="${containerId}-items">${(list[0].items || []).slice(0, 4).map(it => `<span class="service-preview-pill">${it}</span>`).join('')}</div><div class="service-preview-footer"><span class="service-preview-tag" id="${containerId}-tag">${list[0].tag || (list[0].items || []).slice(0, 2).join(' · ')}</span><a class="service-preview-link btn-action btn-action-sm btn-action-light" id="${containerId}-link" href="${list[0].link || '/contact?service=' + encodeURIComponent(list[0].title)}">Discuss this service <span class="arrow">${icoArrDiag}</span></a></div></div></div></div>`;
+const servicesInteractive = (list = homeDisciplines, containerId = 'home-services') => `<div class="services-interactive" id="${containerId}"><div class="services-list" role="tablist" aria-label="Our disciplines">${list.map((d, i) => `<div class="service-hover-item ${i === 0 ? 'active' : ''}" data-index="${i}" role="tab" tabindex="0" aria-selected="${i === 0}"><div class="service-hover-header"><div class="service-hover-meta"><span class="service-hover-num">${d.num || num(i + 1)}</span><h3 class="service-hover-title">${d.title}</h3></div><span class="service-hover-arrow" aria-hidden="true">${icoArrRight}</span></div><div class="service-mobile-drawer"><div class="service-mobile-media" data-service-idx="${i}" role="button" aria-label="View full image of ${d.title}" tabindex="0"><img src="${d.image}" alt="${d.title}" class="service-mobile-img" loading="lazy" decoding="async"><span class="service-mobile-zoom-badge" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6M8 11h6"/></svg><span>Full view</span></span></div><p class="service-mobile-desc">${d.desc}</p><div class="service-mobile-items">${(d.items || []).map(it => `<span class="service-preview-pill">${it}</span>`).join('')}</div><div class="service-mobile-footer"><a class="service-preview-link btn-action btn-action-sm btn-action-light" href="${d.link || '/contact?service=' + encodeURIComponent(d.title)}">Discuss this service <span class="arrow">${icoArrDiag}</span></a></div></div></div>`).join('')}</div><div class="service-preview-panel"><div class="service-preview-media" role="button" aria-label="View full image" tabindex="0">${list.map((d, i) => `<img src="${d.image}" alt="${d.title}" class="service-preview-img ${i === 0 ? 'active' : ''}" data-preview-index="${i}" loading="lazy" decoding="async">`).join('')}</div><div class="service-preview-info"><p class="service-preview-desc" id="${containerId}-desc">${list[0].desc}</p><div class="service-preview-items" id="${containerId}-items">${(list[0].items || []).map(it => `<span class="service-preview-pill">${it}</span>`).join('')}</div><div class="service-preview-footer"><span class="service-preview-tag" id="${containerId}-tag">${list[0].tag || (list[0].items || []).slice(0, 2).join(' · ')}</span><a class="service-preview-link btn-action btn-action-sm btn-action-light" id="${containerId}-link" href="${list[0].link || '/contact?service=' + encodeURIComponent(list[0].title)}">Discuss this service <span class="arrow">${icoArrDiag}</span></a></div></div></div></div>`;
 
 function openServiceLightbox(list, startIdx) {
   const dialog = document.getElementById('lightbox');
@@ -341,7 +341,7 @@ function initServicesInteractive(containerId = 'home-services', list = homeDisci
       if (descEl) descEl.textContent = d.desc;
       if (tagEl) tagEl.textContent = d.tag || (d.items || []).slice(0, 2).join(' · ') || '';
       if (linkEl) linkEl.href = d.link || '/contact?service=' + encodeURIComponent(d.title);
-      if (itemsEl && d.items) { itemsEl.innerHTML = d.items.slice(0, 4).map(it => `<span class="service-preview-pill">${it}</span>`).join('') }
+      if (itemsEl && d.items) { itemsEl.innerHTML = d.items.map(it => `<span class="service-preview-pill">${it}</span>`).join('') }
     }
   }
 
@@ -420,6 +420,32 @@ const steps = [
 const process = () => `<section class="section process-section"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Our Work Process</span><h2>How We Build Your Project</h2></div><p>A simple step-by-step approach that keeps you informed from day one to keys handover.</p></div><div class="process-cards-grid">${steps.map(s => `<article class="process-card reveal"><div class="process-card-top"><span class="process-phase-badge">${s.phase}</span><div class="process-icon-box">${s.icon}</div></div><div class="process-card-body"><h3>${s.title}</h3><p>${s.desc}</p></div><div class="process-card-footer"><span class="process-tag-indicator">${s.tag}</span><span class="process-step-num">${s.num}</span></div></article>`).join('')}</div></div></section>`;
 const stats = () => `<div class="wrap stats"><p>Engineering trust.<br>Creating enduring value.</p><div><b>10+</b><span>Years of experience</span></div><div><b>350+</b><span>Projects completed</span></div><div><b>Turnkey</b><span>Engineering expertise</span></div></div>`;
 const pageTop = (label, title = '', desc = '', parent = null) => `<section class="wrap page-top ${!title ? 'page-top-breadcrumb-only' : ''}"><nav class="breadcrumb-bar" aria-label="Breadcrumb navigation"><a class="breadcrumb-chip" href="/" title="Return to Home"><span class="breadcrumb-arrow" aria-hidden="true">${icoArrLeft}</span><span class="breadcrumb-chip-text">Home</span></a>${breadcrumbSep}${parent ? `<a class="breadcrumb-parent-link" href="${parent.href}">${parent.label}</a>${breadcrumbSep}` : ''}<span class="breadcrumb-target" aria-current="page">${label}</span></nav>${title ? `<h1>${title}</h1>` : ''}${desc ? `<p>${desc}</p>` : ''}</section>`;
+
+const standardsSection = () => `
+  <section class="standards-section" aria-label="Our commitment and standards">
+    <div class="standards-backdrop" style="background-image: url('/assets/standards-bg.jpg');"></div>
+    <div class="standards-overlay"></div>
+    <div class="wrap standards-inner reveal">
+      <div class="standards-head">
+        <span class="standards-eyebrow">
+          <span class="standards-eyebrow-line" aria-hidden="true"></span>
+          OUR COMMITMENT
+        </span>
+        <h2 class="standards-title">The standards we work by</h2>
+      </div>
+
+      <div class="standards-grid">
+        ${commitments.map((c, i) => `
+          <div class="standards-card">
+            <span class="standards-num">${c.num || num(i + 1)}</span>
+            <h3 class="standards-card-title">${c.title}</h3>
+            <p class="standards-card-desc">${c.text}</p>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  </section>
+`;
 function home() {
   return `
     <section class="split-hero-container">
@@ -495,8 +521,177 @@ function home() {
       </div>
     </section>
 
-    <section class="section"><div class="wrap split"><div class="story-image reveal">${image('/assets/home page about section.jpeg', 'Danam Holdings construction and design solutions')}<div class="image-note">One team.<br>From planning to keys handover.</div></div><div class="reveal"><span class="eyebrow">About Danam Holdings</span><h2>Building Trust.<br>Delivering Strong Buildings.</h2><p>Danam Holdings takes care of your entire building journey under one roof — architectural design, civil construction, interior works, and on-site project management.</p><p>With over 10 years of experience and 350+ completed landmarks, we make construction simple, transparent, and completely stress-free for every client.</p><div style="margin-top:28px"><a class="button" href="/about-us">Get to know Danam <span class="arrow-wrap">${icoArrDiag}</span></a></div></div></div></section><section class="section" style="padding-top:30px"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Selected work / A closer look</span><h2>Spaces that speak<br>for themselves.</h2></div><a class="btn-action" href="/our-projects">View all projects <span class="arrow">${icoArrDiag}</span></a></div><div class="projects-grid">${[projects[11], projects[3], projects[2], projects[0]].map(card).join('')}</div></div></section>${clientSection()}${faqSection()}${cta()}`;
+    <section class="section"><div class="wrap split"><div class="story-image reveal">${image('/assets/home page about section.jpeg', 'Danam Holdings construction and design solutions')}<div class="image-note">One team.<br>From planning to keys handover.</div></div><div class="reveal"><span class="eyebrow">About Danam Holdings</span><h2>Building Trust.<br>Delivering Strong Buildings.</h2><p>Danam Holdings takes care of your entire building journey under one roof — architectural design, civil construction, interior works, and on-site project management.</p><p>With over 10 years of experience and 350+ completed landmarks, we make construction simple, transparent, and completely stress-free for every client.</p><div style="margin-top:28px"><a class="button" href="/about-us">Get to know Danam <span class="arrow-wrap">${icoArrDiag}</span></a></div></div></div></section>
+    ${standardsSection()}
+    <section class="section" style="padding-top:30px"><div class="wrap"><div class="section-head"><div><span class="eyebrow">Selected work / A closer look</span><h2>Spaces that speak<br>for themselves.</h2></div><a class="btn-action" href="/our-projects">View all projects <span class="arrow">${icoArrDiag}</span></a></div><div class="projects-grid">${[projects[11], projects[3], projects[2], projects[0]].map(card).join('')}</div></div></section>${clientSection()}${faqSection()}${cta()}`;
 }
+const starSvg = `<svg width="15" height="15" viewBox="0 0 24 24" fill="#f59e0b" stroke="#f59e0b" stroke-width="1" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>`;
+const googleGIcon = `<svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/><path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.27 21.43 7.35 24 12 24z"/><path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.98 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/><path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.35 0 3.27 2.57 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/></svg>`;
+
+const testimonialsSection = () => `
+  <section class="section project-testimonials-section" aria-label="Client reviews and testimonials">
+    <div class="wrap">
+      <div class="section-head project-testimonials-head">
+        <div>
+          <span class="eyebrow">Client Feedback &amp; Trust</span>
+          <h2>What Our Clients Say<br>About Working with Us.</h2>
+        </div>
+        <div class="gmb-rating-card">
+          <div class="gmb-rating-top">
+            ${googleGIcon}
+            <span class="gmb-title">Google Reviews</span>
+          </div>
+          <div class="gmb-rating-stars">
+            <span class="gmb-score">5.0</span>
+            <div class="gmb-stars-row">
+              ${starSvg}${starSvg}${starSvg}${starSvg}${starSvg}
+            </div>
+          </div>
+          <span class="gmb-sub">Verified Client Satisfaction</span>
+        </div>
+      </div>
+
+      <div class="testimonial-single-wrapper">
+        <div class="testimonial-slider-track" id="testimonial-slider-track">
+          ${testimonials.slice(0, 4).map((t, idx) => `
+            <article class="testimonial-slide ${idx === 0 ? 'active' : ''}" data-index="${idx}">
+              <div class="testimonial-card-header">
+                <div class="reviewer-avatar" style="background:${t.avatarBg || '#1e3a2b'}">${t.name[0]}</div>
+                <div class="reviewer-info">
+                  <h3 class="reviewer-name">${t.name}</h3>
+                  <span class="reviewer-sub">${t.establishment ? `${t.establishment} · ` : ''}${t.project || t.role}</span>
+                </div>
+                <div class="google-badge-icon" title="Google Verified Review">
+                  ${googleGIcon}
+                </div>
+              </div>
+
+              <div class="testimonial-stars-row">
+                ${Array(t.rating || 5).fill(starSvg).join('')}
+                <span class="testimonial-time">${t.timeAgo || 'Recent'}</span>
+              </div>
+
+              <blockquote class="testimonial-quote">
+                <p>“${t.quote}”</p>
+              </blockquote>
+
+              <div class="testimonial-footer">
+                <span class="testimonial-location">📍 ${t.location}</span>
+                <span class="testimonial-verified-tag">✓ Verified Client</span>
+              </div>
+            </article>
+          `).join('')}
+        </div>
+
+        <div class="testimonial-slider-controls">
+          <span class="testimonial-counter" id="testimonial-counter">01 / ${num(Math.min(4, testimonials.length))}</span>
+          <div class="testimonial-arrows">
+            <button class="circle testimonial-arrow-btn" id="testimonial-prev" aria-label="Previous testimonial">${icoHeroPrev}</button>
+            <button class="circle testimonial-arrow-btn" id="testimonial-next" aria-label="Next testimonial">${icoHeroNext}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+`;
+
+function initTestimonialsSlider() {
+  const track = document.getElementById('testimonial-slider-track');
+  if (!track) return;
+  if (track.dataset.sliderInitialized === 'true') return;
+  track.dataset.sliderInitialized = 'true';
+
+  const slides = track.querySelectorAll('.testimonial-slide');
+  const counter = document.getElementById('testimonial-counter');
+  const prevBtn = document.getElementById('testimonial-prev');
+  const nextBtn = document.getElementById('testimonial-next');
+  const total = slides.length;
+  if (total === 0) return;
+  let currentIdx = 0;
+  let autoplayTimer = null;
+  let isHovered = false;
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearTimeout(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    if (isHovered || document.hidden) return;
+    autoplayTimer = setTimeout(() => {
+      showSlide(currentIdx + 1);
+      startAutoplay();
+    }, 3000);
+  }
+
+  function restartAutoplay() {
+    stopAutoplay();
+    startAutoplay();
+  }
+
+  function showSlide(idx) {
+    currentIdx = (idx + total) % total;
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === currentIdx);
+    });
+    if (counter) {
+      counter.textContent = `${num(currentIdx + 1)} / ${num(total)}`;
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.onclick = (e) => {
+      e.preventDefault();
+      showSlide(currentIdx - 1);
+      restartAutoplay();
+    };
+  }
+
+  if (nextBtn) {
+    nextBtn.onclick = (e) => {
+      e.preventDefault();
+      showSlide(currentIdx + 1);
+      restartAutoplay();
+    };
+  }
+
+  const container = track.closest('.testimonials-section') || track;
+  container.addEventListener('mouseenter', () => {
+    isHovered = true;
+    stopAutoplay();
+  });
+  container.addEventListener('mouseleave', () => {
+    isHovered = false;
+    startAutoplay();
+  });
+
+  let touchStartX = 0;
+  track.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].clientX;
+    stopAutoplay();
+  }, { passive: true });
+
+  track.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].clientX - touchStartX;
+    if (Math.abs(diff) > 40) {
+      if (diff < 0) showSlide(currentIdx + 1);
+      else showSlide(currentIdx - 1);
+    }
+    startAutoplay();
+  }, { passive: true });
+
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAutoplay();
+    else startAutoplay();
+  });
+
+  startAutoplay();
+}
+
+
 function portfolio() {
   return `
     <section class="portfolio-hero-section">
@@ -522,7 +717,7 @@ function portfolio() {
       </div>
     </section>
 
-    <section class="wrap" style="padding-top: 50px; padding-bottom: 100px;">
+    <section class="wrap" style="padding-top: 50px; padding-bottom: 70px;">
       <div class="filters" role="group" aria-label="Filter projects">
         ${['All projects', 'Residential', 'Commercial'].map((c, i) => `<button class="filter ${i ? '' : 'active'}" data-filter="${c}" aria-pressed="${!i}">${c}</button>`).join('')}
         <span class="project-count" aria-live="polite">12 projects</span>
@@ -531,6 +726,7 @@ function portfolio() {
         ${projects.map(card).join('')}
       </div>
     </section>
+    ${testimonialsSection()}
     ${cta()}
   `;
 }
@@ -902,6 +1098,61 @@ function about() {
     </section>
   `;
 }
+const rotaryServices = [
+  { num: '01', title: 'TURNKEY CONSTRUCTION', desc: 'End-to-end design, civil engineering, and complete handover under one roof.' },
+  { num: '02', title: 'RENOVATION', desc: 'Comprehensive building remodelling, modern facade upgrades, and structural restoration.' },
+  { num: '03', title: 'COMMERCIAL PROJECTS', desc: 'Showrooms, retail complexes, corporate offices, and institutional facilities.' },
+  { num: '04', title: 'NEW CONSTRUCTION', desc: 'Ground-up residential and commercial building construction with highest quality standards.' },
+  { num: '05', title: 'STRENGTHENING & REHABILITATION', desc: 'Structural retrofitting, crack repair, foundation strengthening, and longevity enhancement.' },
+  { num: '06', title: 'INFRASTRUCTURE & EPC WORKS', desc: 'Full engineering, procurement, and civil infrastructure execution.' },
+  { num: '07', title: 'EPCM WORKS', desc: 'Engineering, Procurement, and Construction Management consultancy and supervision.' }
+];
+
+const rotarySection = () => `
+  <section class="section rotary-section" id="rotary-club-services" aria-label="Rotary Club Service List">
+    <div class="wrap">
+      <div class="rotary-container reveal">
+        <div class="rotary-header">
+          <div class="rotary-brand">
+            <div class="rotary-logo-box">
+              <img src="/forumpic/rotary.jpeg" alt="Rotary Club" class="rotary-logo" loading="lazy" decoding="async">
+            </div>
+            <div class="rotary-brand-text">
+              <span class="rotary-tag">BUSINESS CLASSIFICATION</span>
+              <h2 class="rotary-heading">ROTARY CLUB</h2>
+              <span class="rotary-subheading">SERVICE LIST</span>
+            </div>
+          </div>
+          <div class="rotary-badge">
+            <span class="rotary-badge-dot" aria-hidden="true"></span>
+            <span>Accredited Member Offerings</span>
+          </div>
+        </div>
+
+        <div class="rotary-grid">
+          ${rotaryServices.map(s => `
+            <a href="/contact?service=${encodeURIComponent(s.title)}" class="rotary-card" aria-label="Learn more about ${s.title}">
+              <div class="rotary-card-top">
+                <span class="rotary-num">${s.num}</span>
+                <span class="rotary-arrow">${icoArrDiag}</span>
+              </div>
+              <h3 class="rotary-card-title">${s.title}</h3>
+              <p class="rotary-card-desc">${s.desc}</p>
+            </a>
+          `).join('')}
+        </div>
+
+        <div class="rotary-bottom">
+          <p class="rotary-bottom-text">
+            Official construction, engineering, and project management services represented by <strong>Danam Holdings</strong> within the Rotary network.
+          </p>
+          <a class="button rotary-bottom-btn" href="/contact">Inquire for Projects <span class="arrow-wrap">${icoArrDiag}</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+`;
+
 function expertise() {
   return `
     <section class="expertise-split-hero">
@@ -960,6 +1211,7 @@ function expertise() {
       </div>
     </section>
     ${process()}
+    ${rotarySection()}
     ${faqSection()}
     ${cta()}
   `;
@@ -1033,7 +1285,14 @@ function contact() {
       </form>
     </section>
 
-    <iframe class="map" title="Danam Holdings office location" src="${company.address.mapEmbed}" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <a class="map-link-wrapper" href="${company.address.mapLink}" target="_blank" rel="noopener noreferrer" aria-label="Open Danam Holdings in Google Maps and get directions" title="Click to open directions in Google Maps">
+      <iframe class="map" title="Danam Holdings office location" src="${company.address.mapEmbed}" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div class="map-overlay-badge">
+        <span class="map-overlay-icon">${icoPin}</span>
+        <span class="map-overlay-text">Click to open directions in Google Maps</span>
+        <span class="map-overlay-arrow">${icoArrDiag}</span>
+      </div>
+    </a>
   `;
 }
 function initDetailBackButton(p) {
@@ -1053,6 +1312,7 @@ if (path === '/') {
   $('#main').innerHTML = home();
 } else if (path === '/our-projects') {
   $('#main').innerHTML = portfolio();
+  initTestimonialsSlider();
   title = 'Our Projects';
   if (location.hash) {
     setTimeout(() => {
@@ -1069,7 +1329,7 @@ if (path === '/') {
   $('#main').innerHTML = about();
   initLeadershipSlider();
   title = 'About Us';
-} else if (path === '/services') {
+} else if (path === '/services' || path === '/expertise') {
   $('#main').innerHTML = expertise();
   initServicesInteractive('expertise-services', services);
   title = 'Services';

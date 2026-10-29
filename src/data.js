@@ -8,11 +8,11 @@ export const company = {
   phoneHref: "tel:+918110006913",
   phoneHref2: "tel:+919566320944",
   whatsapp: "918110006913",
-  email: "danamholdingsepc@gmail.com",
+  email: "danamholdings.in",
   hours: "Mon – Sat: 9:00 AM – 6:30 PM",
   address: {
     lines: [
-      "1, Anuppanadi Rd, AA Road,",
+      "1, Anuppanadi Road,",
       "Teppakulam, Madurai, Tamil Nadu 625009"
     ],
     short: "1, Anuppanadi Rd, Teppakulam, Madurai",
